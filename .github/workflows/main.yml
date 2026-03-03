@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+env:
+  GLOBAL_ENV: demo
 
 jobs:
   show-secret:
@@ -20,5 +22,16 @@ jobs:
           echo "branch: ${{github.ref}}"
           echo "Repo: ${{github.repository}}"
           echo "Runnere: ${{runner.os}}"
-          echo "${{toJson(github)}}"
-  
+          # echo "${{toJson(github)}}"
+
+  print-variables:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Run
+        run: |
+          echo "Global env: $GLOBAL_ENV"  
+          echo "Repo variable: ${{ vars.APP_MODE }}"
+          echo "Secret: ${{ secrets.MY_PASSWORD }}"
+          echo "Actor: ${{ github.actor }}"
+        
