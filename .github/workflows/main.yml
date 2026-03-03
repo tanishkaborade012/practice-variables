@@ -1,5 +1,8 @@
 name: Secret demo
-on: workflow_dispatch
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   show-secret:
@@ -17,4 +20,5 @@ jobs:
           echo "branch: ${{github.ref}}"
           echo "Repo: ${{github.repository}}"
           echo "Runnere: ${{runner.os}}"
+          echo "${{toJson(github)}}"
   
