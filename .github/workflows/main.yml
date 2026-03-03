@@ -7,4 +7,14 @@ jobs:
     steps:
       - name: Use Secret 
         run: echo "Password is ${{secrets.MY_PASSWORD}}" 
+
+  show-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git context
+        run: |
+          echo "Actor: ${{github.actor}}"
+          echo "branch: ${{github.ref}}"
+          echo "Repo: ${{github.repository}}"
+          echo "Runnere: ${{runner.os}}"
   
