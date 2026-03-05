@@ -1,37 +1,49 @@
-name: Secret demo
-on: 
+# name: Secret demo
+# on: 
+#   push:
+#     branches:
+#       - main
+# env:
+#   GLOBAL_ENV: demo
+
+# jobs:
+#   show-secret:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Use Secret 
+#         run: echo "Password is ${{secrets.MY_PASSWORD}}" 
+
+#   show-context:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: git context
+#         run: |
+#           echo "Actor: ${{github.actor}}"
+#           echo "branch: ${{github.ref}}"
+#           echo "Repo: ${{github.repository}}"
+#           echo "Runnere: ${{runner.os}}"
+#           # echo "${{toJson(github)}}"
+
+#   print-variables:
+#     runs-on: ubuntu-latest
+#     environment: production
+#     steps:
+#       - name: Run
+#         run: |
+#           echo "Global env: $GLOBAL_ENV"  
+#           echo "Repo variable: ${{ vars.APP_MODE }}"
+#           echo "Secret: ${{ secrets.MY_PASSWORD }}"
+#           echo "Actor: ${{ github.actor }}"
+        
+
+
+on :
   push:
-    branches:
-      - main
-env:
-  GLOBAL_ENV: demo
+   branches:
+     - main
 
 jobs:
-  show-secret:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Use Secret 
-        run: echo "Password is ${{secrets.MY_PASSWORD}}" 
-
-  show-context:
-    runs-on: ubuntu-latest
-    steps:
-      - name: git context
-        run: |
-          echo "Actor: ${{github.actor}}"
-          echo "branch: ${{github.ref}}"
-          echo "Repo: ${{github.repository}}"
-          echo "Runnere: ${{runner.os}}"
-          # echo "${{toJson(github)}}"
-
-  print-variables:
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: Run
-        run: |
-          echo "Global env: $GLOBAL_ENV"  
-          echo "Repo variable: ${{ vars.APP_MODE }}"
-          echo "Secret: ${{ secrets.MY_PASSWORD }}"
-          echo "Actor: ${{ github.actor }}"
-        
+      - run: echo "testing"
