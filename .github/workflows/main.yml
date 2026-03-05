@@ -41,9 +41,14 @@ on :
   push:
    branches:
      - main
+env:
+        APP: myapp
 
 jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
       - run: echo "testing"
+      - run: echo $APP
+
+      
