@@ -53,6 +53,8 @@ jobs:
       - run: echo "testing"
       - run: echo $APP
       - run : echo $ENV
+      - run : echo "${{secrets.PASSWORD}}"
+      - run: echo " ${{vars.REPO}}"
       
 
       
