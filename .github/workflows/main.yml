@@ -47,8 +47,12 @@ env:
 jobs:
   test:
     runs-on: ubuntu-22.04
+    env:
+       ENV: new
     steps:
       - run: echo "testing"
       - run: echo $APP
+      - run : echo $ENV
+      
 
       
